@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estiloformulario.css">
+    <title>Formulario de Heladería</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+        </ul>
+    </nav>
+    
+    <h2>Login usuario</h2>
+    <form id ="login" action="/submit_login" method="post">
+        <h2>Iniciar sesión</h2>
+        <label for="correo">Correo Eletronico:</label><br>
+        <input type="text" id="correo" name="correo"><br>
+        <label for="contraseña">Contraseña:</label><br>
+        <input type="password" id="contraseña" name="contraseña"><br><br>
+        <input type="submit" value="Iniciar sesión">
+    </form>
+    <a href="/registrar.html">No esta Registrado</a>
+    
+</body>
+</html>
