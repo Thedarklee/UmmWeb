@@ -15,7 +15,8 @@
                 // Crear una nueva fila de tabla
                 var row = document.createElement('tr');
                 // Establecer el contenido HTML de la fila con los datos del helado
-                row.innerHTML = '<td>' + helado.nombre + '</td>' +
+                row.innerHTML = 
+                    '<td>' + helado.nombre + '</td>' +
                     '<td>' + helado.descripcion + '</td>' +
                     '<td>' + helado.sabor + '</td>' +
                     '<td>' + helado.tipo + '</td>' +
@@ -24,7 +25,7 @@
                     '<td>' + '<img src="/img/' + helado.imagen + '" alt="helado" >"' + '</td>' +
                     '<td>' +
                     '<button onclick="prepararEliminar(' + helado.id + ') " data-bs-toggle="modal" data-bs-target="#eliminarModal">Eliminar</button>' +
-                    '<button onclick="verDetalles(\'' + helado.id + '\') " data-bs-toggle="modal" data-bs-target="#detallesModal ">Ver Detalle</button>' +
+                    '<button onclick="verDetalles(' + helado.id + ') " data-bs-toggle="modal" data-bs-target="#detallesModal ">Ver Detalle</button>' +
                     '</td>';
                 heladosList.appendChild(row);
             });

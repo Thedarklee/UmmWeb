@@ -98,7 +98,7 @@ app.get('/helados', (req, res) => {
 });
 // Ruta para obtener los datos de una película por su ID
 app.get('/heladoE/:id', (req, res) => {
-    console.log(id)
+    
     // Extraer el ID de los parámetros de la solicitud
     const id = req.params.id;
     // Ejecutar una consulta SQL para obtener los datos de la película con el ID proporcionado
