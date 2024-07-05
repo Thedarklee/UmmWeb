@@ -108,25 +108,23 @@
 
     var heladoAEliminar = null;
     function prepararEliminar(id) {
-        //Asignar el id del usuario a eliminar
+     
         heladoAEliminar = id;
     }
-    //Generalmos metodo para confirmar la eliminarcion
     document.getElementById("confirmarEliminarBtn").addEventListener("click", function () {
-        //verificamos que el id no sea nulo
         if (heladoAEliminar !== null) {
-            //Realizo la peticion para eliminar
             fetch("/eliminar_helado/" + heladoAEliminar, {
                 method: "DELETE"
             })
                 .then(function (response) {
-                    //Verifico si el usuario se elimino
+                  
+                    
                     if (response.ok) {
-                        alert("Usuario eliminado exitosamente...")
+                        alert("helado eliminado exitosamente...")
                         location.reload();
 
                     } else {
-                        alert("Error al eliminar usuario")
+                        alert("Error al eliminar helado")
                     }
 
                 })
