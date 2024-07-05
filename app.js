@@ -42,6 +42,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //Configuro para que la aplicacon inicie desde el director o carpeta pagina principal
 app.use(express.static(path.join(__dirname, 'pagina_principal')));
+
+
+
 //Recibo los valores y los envio a la tabla
 app.post('/guardar_helado', upload.single('imagen'), (req, res) => {
     const imagen = req.file.filename;
@@ -65,6 +68,24 @@ app.post('/guardar_usuario', (req, res) => {
     });
 });
 
+//eliminar /eliminar_helado/
+app.delete('/eliminar_helado/:id', (req, res) => {
+    // Obtiene el parámetro 'rut' de la URL para eliminar el usuario específico
+    const id = req.params.id;
+    // Define la consulta SQL para eliminar un usuario donde el Rut coincida
+    const sql = 'DELETE FROM Helado WHERE id = ?';
+    // Ejecuta la consulta SQL, utilizando el Rut que se enviará a la consulta SQL
+    connection.query(sql, [id], (err, result) => {
+        // Si ocurre un error durante la ejecución de la consulta, lanza una excepción
+        if (err) throw err;
+        // Imprime un mensaje en la consola indicando que el usuario fue eliminado correctamente
+        console.log('helado eliminado correctamente.');
+        // Envía una respuesta HTTP 200 OK al cliente, indicando que la eliminación fue exitosa
+        res.sendStatus(200);
+    });
+});
+
+
 
 //Ruta para mostrar las películas en el listardatos.html con metodo GET
 app.get('/helados', (req, res) => {
@@ -76,7 +97,8 @@ app.get('/helados', (req, res) => {
     });
 });
 // Ruta para obtener los datos de una película por su ID
-app.get('/helado_especifico/:id', (req, res) => {
+app.get('/heladoE/:id', (req, res) => {
+    console.log(id)
     // Extraer el ID de los parámetros de la solicitud
     const id = req.params.id;
     // Ejecutar una consulta SQL para obtener los datos de la película con el ID proporcionado
@@ -89,7 +111,7 @@ app.get('/helado_especifico/:id', (req, res) => {
         }
         // Verificar si no se encontró ninguna película con el ID proporcionado
         if (result.length === 0) {
-            res.status(404).send('Película no encontrada');
+            res.status(404).send('helado no encontrado');
             return;
         }
         // Enviar los datos de la película como respuesta en formato JSON
